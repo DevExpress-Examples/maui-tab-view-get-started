@@ -1,3 +1,14 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Startup.cs](./TabView_GenerateItems/Startup.cs)
+* [MainPage.xaml](./TabView_GenerateItems/MainPage.xaml)
+* [MainPage.xaml.cs](./TabView_GenerateItems/MainPage.xaml.cs)
+* [CarModel.cs](./TabView_GenerateItems/CarModel.cs)
+* [CarBrandViewModel.cs](./TabView_GenerateItems/CarBrandViewModel.cs)
+* [MainViewModel.cs](./TabView_GenerateItems/MainViewModel.cs)
+<!-- default file list end -->
+
 # Generate MAUI Tab View Items from a Data Source
 
 This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) component with tab items generated from a data source to create a tab bar that allows users to filter lists. 

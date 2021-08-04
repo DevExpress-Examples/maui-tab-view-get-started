@@ -1,0 +1,52 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation"
+             xmlns:local="clr-namespace:TabView_GenerateItems"
+             x:Class="TabView_GenerateItems.MainPage">
+<ContentPage.Resources>
+    <ResourceDictionary>
+        <local:IsSelectedToColorConverter x:Key="isSelectedToColorConverter"
+                                          DefaultColor="Transparent"
+                                          SelectedColor="#56a6ec"/>
+    </ResourceDictionary>
+</ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+    <dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
+                 SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                 ItemHeaderMinWidth="90"
+                 ItemHeaderMaxWidth="360"
+                 HeaderPanelItemSpacing="8"
+                 HeaderPanelBackgroundColor="#1e88e5"
+                 HeaderPanelShadowHeight="5"
+                 HeaderPanelShadowRadius="5"
+                 IsSelectedItemIndicatorVisible="False">
+    <dxn:TabView.ItemHeaderTemplate>
+        <DataTemplate>
+            <Frame Padding="10, 15"
+                   HasShadow="False"
+                   BackgroundColor="{Binding IsSelected, 
+                                    Converter={StaticResource isSelectedToColorConverter}}"
+                   Margin="0,8,0,8"
+                   CornerRadius="25">
+                <Label Text="{Binding BrandName}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="White"/>
+            </Frame>
+        </DataTemplate>
+    </dxn:TabView.ItemHeaderTemplate>
+        <dxn:TabView.ItemTemplate>
+            <DataTemplate>
+                <ListView ItemsSource="{Binding CarModels}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding FullName}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </DataTemplate>
+        </dxn:TabView.ItemTemplate>
+    </dxn:TabView>
+</ContentPage>

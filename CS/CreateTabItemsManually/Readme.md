@@ -1,3 +1,11 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Startup.cs](./TabView_CreateItems/Startup.cs)
+* [MainPage.xaml](./TabView_CreateItems/MainPage.xaml)
+* [MainPage.xaml.cs](./TabView_CreateItems/MainPage.xaml.cs)
+<!-- default file list end -->
+
 # Create MAUI Tab View Items Manually
 
 This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) component with manually created tab items to implement bottom tab navigation in a .NET MAUI application.
@@ -56,7 +64,7 @@ In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Ma
 ```
 
 ## Create Tab Items
-Add icons for tabs (.svg files) to the project and set their **Build Action** property to **MauiImage**.
+Add icons for tabs ([.svg files](./TabView_CreateItems/Resources/Images/)) to the project and set their **Build Action** property to **MauiImage**.
 
 Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabViewItem) objects to the [TabView.Items](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.Items) collection:
 
@@ -111,7 +119,7 @@ Move the header panel with tabs to the bottom of the page, set up tabs to fill a
 </dxn:TabView>
 ```
 
-Specify icon and text colors for tabs in the header panel. Use properties of the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) object to specify the same colors for all tab items when they are not selected, and properties of [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabViewItem) objects to set icon and text colors for individual tabs in the selected state:
+Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderIconColor** and **ItemHeaderTextColor** properties of the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) object to specify the same colors for all tab items when they are not selected, and the **SelectedHeaderIconColor** and **SelectedHeaderTextColor** properties of [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabViewItem) objects to set icon and text colors for individual tabs in the selected state:
 
 ```xaml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"

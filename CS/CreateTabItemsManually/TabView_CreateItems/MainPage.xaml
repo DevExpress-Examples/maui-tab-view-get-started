@@ -1,0 +1,55 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TabView_CreateItems.MainPage"
+             xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation">
+    <ContentPage.Resources>
+        <Color x:Key="unselectedItemColor">#757575</Color>
+        <Color x:Key="mailColor">#1e88e5</Color>
+        <Color x:Key="calendarColor">#43a047</Color>
+        <Color x:Key="peopleColor">#e53935</Color>
+    </ContentPage.Resources>
+    <dxn:TabView HeaderPanelPosition="Bottom"
+                 ItemHeaderWidth="*"
+                 IsSelectedItemIndicatorVisible="False"
+                 ItemHeaderTextColor="{StaticResource unselectedItemColor}"
+                 ItemHeaderIconColor="{StaticResource unselectedItemColor}">
+        <dxn:TabViewItem HeaderText="Mail"
+                         HeaderIcon="email.svg"
+                         SelectedHeaderTextColor="{StaticResource mailColor}"
+                         SelectedHeaderIconColor="{StaticResource mailColor}">
+            <dxn:TabViewItem.Content>
+                <StackLayout>
+                    <Label Text="Mail List Here" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </dxn:TabViewItem.Content>
+        </dxn:TabViewItem>
+        
+        <dxn:TabViewItem HeaderText="Calendar"
+                         HeaderIcon="calendar.svg"
+                         SelectedHeaderTextColor="{StaticResource calendarColor}"
+                         SelectedHeaderIconColor="{StaticResource calendarColor}">
+            <dxn:TabViewItem.Content>
+                <StackLayout>
+                    <Label Text="Calendar Here" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </dxn:TabViewItem.Content>
+        </dxn:TabViewItem>
+
+        <dxn:TabViewItem HeaderText="People"
+                         HeaderIcon="people.svg"
+                         SelectedHeaderTextColor="{StaticResource peopleColor}"
+                         SelectedHeaderIconColor="{StaticResource peopleColor}">
+            <dxn:TabViewItem.Content>
+                <StackLayout>
+                    <Label Text="People Here"
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </dxn:TabViewItem.Content>
+        </dxn:TabViewItem>
+    </dxn:TabView>
+</ContentPage>
