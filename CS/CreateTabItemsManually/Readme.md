@@ -73,33 +73,33 @@ Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.Tab
     <dxn:TabViewItem HeaderText="Mail"
                      HeaderIcon="email.svg">
         <dxn:TabViewItem.Content>
-            <StackLayout>
+            <Grid>
                 <Label Text="Mail List Here" 
                        HorizontalOptions="Center" 
                        VerticalOptions="CenterAndExpand"/>
-            </StackLayout>
+            </Grid>
         </dxn:TabViewItem.Content>
     </dxn:TabViewItem>
 
     <dxn:TabViewItem HeaderText="Calendar"
                      HeaderIcon="calendar.svg">
         <dxn:TabViewItem.Content>
-            <StackLayout>
+            <Grid>
                 <Label Text="Calendar Here" 
                        HorizontalOptions="Center" 
                        VerticalOptions="CenterAndExpand"/>
-            </StackLayout>
+            </Grid>
         </dxn:TabViewItem.Content>
     </dxn:TabViewItem>
 
     <dxn:TabViewItem HeaderText="People"
                      HeaderIcon="people.svg">
         <dxn:TabViewItem.Content>
-            <StackLayout>
+            <Grid>
                 <Label Text="People Here"
                        HorizontalOptions="Center" 
                        VerticalOptions="CenterAndExpand"/>
-            </StackLayout>
+            </Grid>
         </dxn:TabViewItem.Content>
     </dxn:TabViewItem>
 </dxn:TabView>
@@ -142,11 +142,11 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
                          SelectedHeaderIconColor="{StaticResource mail_blue}"
                          SelectedHeaderTextColor="{StaticResource mail_blue}">
             <dxn:TabViewItem.Content>
-                <StackLayout>
+                <Grid>
                     <Label Text="Mail List Here" 
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
-                </StackLayout>
+                </Grid>
             </dxn:TabViewItem.Content>
         </dxn:TabViewItem>
 
@@ -155,11 +155,11 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
                          SelectedHeaderIconColor="{StaticResource calendar_green}"
                          SelectedHeaderTextColor="{StaticResource calendar_green}">
             <dxn:TabViewItem.Content>
-                <StackLayout>
+                <Grid>
                     <Label Text="Calendar Here" 
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
-                </StackLayout>
+                </Grid>
             </dxn:TabViewItem.Content>
         </dxn:TabViewItem>
 
@@ -168,11 +168,11 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
                          SelectedHeaderIconColor="{StaticResource people_red}"
                          SelectedHeaderTextColor="{StaticResource people_red}">
             <dxn:TabViewItem.Content>
-                <StackLayout>
+                <Grid>
                     <Label Text="People Here"
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
-                </StackLayout>
+                </Grid>
             </dxn:TabViewItem.Content>
         </dxn:TabViewItem>
     </dxn:TabView>

@@ -18,11 +18,11 @@
                          SelectedHeaderTextColor="{StaticResource mailColor}"
                          SelectedHeaderIconColor="{StaticResource mailColor}">
             <dxn:TabViewItem.Content>
-                <StackLayout>
+                <Grid>
                     <Label Text="Mail List Here" 
-                            HorizontalOptions="Center" 
-                            VerticalOptions="CenterAndExpand"/>
-                </StackLayout>
+                           HorizontalOptions="Center" 
+                           VerticalOptions="CenterAndExpand"/>
+                </Grid>
             </dxn:TabViewItem.Content>
         </dxn:TabViewItem>
         
@@ -31,11 +31,11 @@
                          SelectedHeaderTextColor="{StaticResource calendarColor}"
                          SelectedHeaderIconColor="{StaticResource calendarColor}">
             <dxn:TabViewItem.Content>
-                <StackLayout>
+                <Grid>
                     <Label Text="Calendar Here" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="CenterAndExpand"/>
-                </StackLayout>
+                           HorizontalOptions="Center" 
+                           VerticalOptions="CenterAndExpand"/>
+                </Grid>
             </dxn:TabViewItem.Content>
         </dxn:TabViewItem>
 
@@ -44,11 +44,11 @@
                          SelectedHeaderTextColor="{StaticResource peopleColor}"
                          SelectedHeaderIconColor="{StaticResource peopleColor}">
             <dxn:TabViewItem.Content>
-                <StackLayout>
+                <Grid>
                     <Label Text="People Here"
-                HorizontalOptions="Center" 
-                VerticalOptions="CenterAndExpand"/>
-                </StackLayout>
+                           HorizontalOptions="Center" 
+                           VerticalOptions="CenterAndExpand"/>
+                </Grid>
             </dxn:TabViewItem.Content>
         </dxn:TabViewItem>
     </dxn:TabView>

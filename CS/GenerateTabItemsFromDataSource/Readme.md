@@ -230,20 +230,26 @@ In the MainPage.xaml file:
                  SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}">
         <dxn:TabView.ItemHeaderTemplate>
             <DataTemplate>
-                <Label Text="{Binding BrandName}"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"/>
+                <Grid>
+                    <Label Text="{Binding BrandName}"
+                    	   HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand"/>
+            	</Grid>
             </DataTemplate>
         </dxn:TabView.ItemHeaderTemplate>
         <dxn:TabView.ItemTemplate>
             <DataTemplate>
-                <ListView ItemsSource="{Binding CarModels}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell Text="{Binding FullName}"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <Grid>
+                    <ListView ItemsSource="{Binding CarModels}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Padding="5" Text="{Binding FullName}" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
             </DataTemplate>
         </dxn:TabView.ItemTemplate>
     </dxn:TabView>
@@ -263,12 +269,12 @@ Specify the minimum and maximum sizes of items, the spacing between them, and it
              HeaderPanelItemSpacing="8">
     <dxn:TabView.ItemHeaderTemplate>
         <DataTemplate>
-            <Frame Padding="10, 15"
-                   HasShadow="False">
+            <Grid>
                 <Label Text="{Binding BrandName}"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"/>
-            </Frame>
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"
+                       Padding="5,0"/>
+            </Grid>
         </DataTemplate>
     </dxn:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
@@ -348,17 +354,17 @@ Configure also the header panel’s shadow, hide the selected item indicator, an
              IsSelectedItemIndicatorVisible="False">
     <dxn:TabView.ItemHeaderTemplate>
         <DataTemplate>
-            <Frame Padding="10, 15"
-                   HasShadow="False"
-                   BackgroundColor="{Binding IsSelected, 
-                                    Converter={StaticResource isSelectedToColorConverter}}"
-                   Margin="0,8,0,8"
-                   CornerRadius="25">
-                <Label Text="{Binding BrandName}"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
+            <Grid>
+                <BoxView BackgroundColor="{Binding IsSelected, 
+                                           Converter={StaticResource isSelectedToColorConverter}}"
+                         Margin="0,8,0,8"
+                         CornerRadius="25"/>
+                <Label HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"
+                       Text="{Binding BrandName}"
+                       Padding="5,0"
                        TextColor="White"/>
-            </Frame>
+            </Grid>
         </DataTemplate>
     </dxn:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
