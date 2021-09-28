@@ -7,7 +7,7 @@
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<RootNamespace>TabView_GenerateItems</RootNamespace>
-
+        <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
 		<!-- Display name -->
 		<ApplicationTitle>TabView_GenerateItems</ApplicationTitle>
 
@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="DevExpress.Maui.Navigation" Version="21.2.1-pre-21231" />
+	  <PackageReference Include="DevExpress.Maui.Navigation" Version="21.2.1-pre-21272" />
 	</ItemGroup>
 
 	<PropertyGroup>
