@@ -1,7 +1,7 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [Startup.cs](./TabView_GenerateItems/Startup.cs)
+* [MauiProgram.cs](./TabView_GenerateItems/MauiProgram.cs)
 * [MainPage.xaml](./TabView_GenerateItems/MainPage.xaml)
 * [MainPage.xaml.cs](./TabView_GenerateItems/MainPage.xaml.cs)
 * [CarModel.cs](./TabView_GenerateItems/CarModel.cs)
@@ -32,7 +32,7 @@ Register https://nuget.devexpress.com/free/api as a package source in Visual Stu
 
 Install the **DevExpress.Maui.Navigation** package from your NuGet feed.
 
-In the *Startup.cs* file, register a handler for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) class:
+In the *MauiProgram.cs* file, register a handler for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) class:
 
 ```cs
 using Microsoft.Maui;
@@ -41,15 +41,17 @@ using Microsoft.Maui.Controls.Hosting;
 using DevExpress.Maui.Navigation;
 
 namespace TabView_GenerateItems {
-    public class Startup : IStartup {
-        public void Configure(IAppHostBuilder appBuilder) {
-            appBuilder
-                .ConfigureMauiHandlers((_, handlers) => handlers.AddHandler<TabView, TabViewHandler>())
+    public static class MauiProgram {
+        public static MauiApp CreateMauiApp() {
+            var builder = MauiApp.CreateBuilder();
+            builder
                 .UseMauiApp<App>()
+                .ConfigureMauiHandlers((handlers => handlers.AddHandler<TabView, TabViewHandler>()))
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
+            return builder.Build();
         }
     }
 }
