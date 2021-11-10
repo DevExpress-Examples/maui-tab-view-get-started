@@ -3,13 +3,6 @@
              xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation"
              xmlns:local="clr-namespace:TabView_GenerateItems"
              x:Class="TabView_GenerateItems.MainPage">
-<ContentPage.Resources>
-    <ResourceDictionary>
-        <local:IsSelectedToColorConverter x:Key="isSelectedToColorConverter"
-                                          DefaultColor="Transparent"
-                                          SelectedColor="#56a6ec"/>
-    </ResourceDictionary>
-</ContentPage.Resources>
     <ContentPage.BindingContext>
         <local:MainViewModel/>
     </ContentPage.BindingContext>
@@ -25,10 +18,10 @@
     <dxn:TabView.ItemHeaderTemplate>
         <DataTemplate>
                 <Grid>
-                    <BoxView BackgroundColor="{Binding IsSelected, 
-                                              Converter={StaticResource isSelectedToColorConverter}}"
-                         Margin="0,8,0,8"
-                         CornerRadius="25"/>
+                    <BoxView IsVisible="{Binding IsSelected}"
+                             BackgroundColor="#56a6ec"
+                             Margin="0,8,0,8"
+                             CornerRadius="25"/>
                     <Label HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand"
                            Text="{Binding BrandName}"

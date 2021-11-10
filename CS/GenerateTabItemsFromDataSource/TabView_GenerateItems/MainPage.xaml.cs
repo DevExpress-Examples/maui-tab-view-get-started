@@ -9,18 +9,4 @@ namespace TabView_GenerateItems {
 			InitializeComponent();
 		}
 	}
-
-    class IsSelectedToColorConverter : IValueConverter {
-        public Color DefaultColor { get; set; }
-        public Color SelectedColor { get; set; }
-
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
-            if (!(value is bool boolValue)) return DefaultColor;
-            return (boolValue) ? SelectedColor : DefaultColor;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
-            throw new NotImplementedException();
-        }
-    }
 }
