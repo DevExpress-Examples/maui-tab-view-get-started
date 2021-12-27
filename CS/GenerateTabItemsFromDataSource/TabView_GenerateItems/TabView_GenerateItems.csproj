@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<!-- Android -->
-		<TargetFrameworks>net6.0-android</TargetFrameworks>
+		<TargetFrameworks>net6.0-ios;net6.0-android</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>

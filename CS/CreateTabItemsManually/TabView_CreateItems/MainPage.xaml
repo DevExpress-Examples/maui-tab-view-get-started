@@ -14,7 +14,7 @@
                  ItemHeaderTextColor="{StaticResource unselectedItemColor}"
                  ItemHeaderIconColor="{StaticResource unselectedItemColor}">
         <dxn:TabViewItem HeaderText="Mail"
-                         HeaderIcon="email.svg"
+                         HeaderIcon="email.png"
                          SelectedHeaderTextColor="{StaticResource mailColor}"
                          SelectedHeaderIconColor="{StaticResource mailColor}">
             <dxn:TabViewItem.Content>
@@ -27,7 +27,7 @@
         </dxn:TabViewItem>
         
         <dxn:TabViewItem HeaderText="Calendar"
-                         HeaderIcon="calendar.svg"
+                         HeaderIcon="calendar.png"
                          SelectedHeaderTextColor="{StaticResource calendarColor}"
                          SelectedHeaderIconColor="{StaticResource calendarColor}">
             <dxn:TabViewItem.Content>
@@ -40,7 +40,7 @@
         </dxn:TabViewItem>
 
         <dxn:TabViewItem HeaderText="People"
-                         HeaderIcon="people.svg"
+                         HeaderIcon="people.png"
                          SelectedHeaderTextColor="{StaticResource peopleColor}"
                          SelectedHeaderIconColor="{StaticResource peopleColor}">
             <dxn:TabViewItem.Content>
