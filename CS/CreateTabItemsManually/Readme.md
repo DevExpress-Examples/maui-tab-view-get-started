@@ -35,7 +35,7 @@ In the *MauiProgram.cs* file, register a handler for the [TabView](http://docs.d
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Hosting;
-using DevExpress.Maui.Navigation;
+using DevExpress.Maui;
 
 namespace TabView_CreateItems {
     public static class MauiProgram {
@@ -47,7 +47,7 @@ namespace TabView_CreateItems {
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 })
-                .ConfigureMauiHandlers((handlers => handlers.AddHandler<TabView, TabViewHandler>()));
+                .UseDevExpress();
             return builder.Build();
         }
     }
