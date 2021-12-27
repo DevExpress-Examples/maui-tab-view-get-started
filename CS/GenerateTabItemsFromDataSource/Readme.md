@@ -6,6 +6,7 @@
 * [MainPage.xaml.cs](./TabView_GenerateItems/MainPage.xaml.cs)
 * [CarModel.cs](./TabView_GenerateItems/CarModel.cs)
 * [CarBrandViewModel.cs](./TabView_GenerateItems/CarBrandViewModel.cs)
+* [BoolToColorConverter.cs](./TabView_GenerateItems/BoolToColorConverter.cs)
 * [MainViewModel.cs](./TabView_GenerateItems/MainViewModel.cs)
 <!-- default file list end -->
 
