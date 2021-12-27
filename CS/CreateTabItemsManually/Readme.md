@@ -73,7 +73,7 @@ Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.Tab
 ```xaml
 <dxn:TabView>
     <dxn:TabViewItem HeaderText="Mail"
-                     HeaderIcon="email.svg">
+                     HeaderIcon="email">
         <dxn:TabViewItem.Content>
             <Grid>
                 <Label Text="Mail List Here" 
@@ -84,7 +84,7 @@ Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.Tab
     </dxn:TabViewItem>
 
     <dxn:TabViewItem HeaderText="Calendar"
-                     HeaderIcon="calendar.svg">
+                     HeaderIcon="calendar">
         <dxn:TabViewItem.Content>
             <Grid>
                 <Label Text="Calendar Here" 
@@ -95,7 +95,7 @@ Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.Tab
     </dxn:TabViewItem>
 
     <dxn:TabViewItem HeaderText="People"
-                     HeaderIcon="people.svg">
+                     HeaderIcon="people">
         <dxn:TabViewItem.Content>
             <Grid>
                 <Label Text="People Here"
@@ -140,7 +140,7 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
                  ItemHeaderIconColor="{StaticResource unselected_grey}"
                  ItemHeaderTextColor="{StaticResource unselected_grey}">
         <dxn:TabViewItem HeaderText="Mail"
-                         HeaderIcon="email.svg"
+                         HeaderIcon="email"
                          SelectedHeaderIconColor="{StaticResource mail_blue}"
                          SelectedHeaderTextColor="{StaticResource mail_blue}">
             <dxn:TabViewItem.Content>
@@ -153,7 +153,7 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
         </dxn:TabViewItem>
 
         <dxn:TabViewItem HeaderText="Calendar"
-                         HeaderIcon="calendar.svg"
+                         HeaderIcon="calendar"
                          SelectedHeaderIconColor="{StaticResource calendar_green}"
                          SelectedHeaderTextColor="{StaticResource calendar_green}">
             <dxn:TabViewItem.Content>
@@ -166,7 +166,7 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
         </dxn:TabViewItem>
 
         <dxn:TabViewItem HeaderText="People"
-                         HeaderIcon="people.svg"
+                         HeaderIcon="people"
                          SelectedHeaderIconColor="{StaticResource people_red}"
                          SelectedHeaderTextColor="{StaticResource people_red}">
             <dxn:TabViewItem.Content>
