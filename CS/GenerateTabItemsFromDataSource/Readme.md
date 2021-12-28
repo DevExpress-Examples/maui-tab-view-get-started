@@ -32,7 +32,7 @@ Register `https://nuget.devexpress.com/free/api` as a package source in Visual S
 
 Install the **DevExpress.Maui.Navigation** package from your NuGet feed.
 
-In the *MauiProgram.cs* file, call the **UseDevExpress** method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) and other DevExpress controls:
+In the *MauiProgram.cs* file, call the `UseDevExpress` method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) and other DevExpress controls:
 
 ```cs
 using Microsoft.Maui;
@@ -282,7 +282,7 @@ Specify the minimum and maximum sizes of items, the spacing between them, and it
 </dxn:TabView>
 ```
 
-Specify the header panel’s background, and assign a color to a header item depending on whether the tab is selected:
+Use the [TabView.HeaderPanelBackgroundColor](https://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.HeaderPanelBackgroundColor) property to specify the background color of the header panel. The `Label.TextColor` property specifies the color of labels in the panel. We use the following converter to convert a Boolean value in the view model to a `Color` structure.
 
 
 ```cs
