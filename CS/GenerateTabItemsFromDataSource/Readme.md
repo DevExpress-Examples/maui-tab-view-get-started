@@ -340,7 +340,7 @@ namespace TabView_GenerateItems
 </dxn:TabView>
 ```
 
-Configure also the header panel’s shadow, margin for header items:
+Customize the header panel shadow and item margins:
 
 ```xaml
 <dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
