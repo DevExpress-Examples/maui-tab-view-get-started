@@ -1,6 +1,5 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace TabView_GenerateItems
@@ -10,7 +9,6 @@ namespace TabView_GenerateItems
 		public App()
 		{
 			InitializeComponent();
-
 			MainPage = new MainPage();
 		}
 	}

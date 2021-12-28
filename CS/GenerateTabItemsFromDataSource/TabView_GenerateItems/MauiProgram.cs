@@ -1,7 +1,7 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Hosting;
-using DevExpress.Maui.Navigation;
+using DevExpress.Maui;
 
 namespace TabView_GenerateItems {
     public static class MauiProgram {
@@ -9,7 +9,7 @@ namespace TabView_GenerateItems {
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .ConfigureMauiHandlers((handlers => handlers.AddHandler<TabView, TabViewHandler>()))
+                .UseDevExpress()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

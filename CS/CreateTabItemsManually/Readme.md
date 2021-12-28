@@ -10,11 +10,11 @@
 
 This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) component with manually created tab items to implement bottom tab navigation in a .NET MAUI application.
 
-1. Install a [.NET MAUI development](https://docs.microsoft.com/en-gb/dotnet/maui/get-started/installation) environment and open the solution in Visual Studio 22 Preview.
-2. Register the following NuGet feed in Visual Studio: https://nuget.devexpress.com/free/api.  
+1. Install a [.NET MAUI development](https://docs.microsoft.com/en-gb/dotnet/maui/get-started/installation) environment and open the solution in Visual Studio 2022.
+2. Register the following NuGet feed in Visual Studio: `https://nuget.devexpress.com/free/api`.  
 	If you are an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/), this MAUI preview will be available in your personal NuGet feed automatically.
 4. Restore NuGet packages.  
-5. Run the application on an Android device or emulator.  
+5. Run the application on an Android or iOS device or emulator.  
 
 <img src="./img/devexpress-maui-tab-view.png"/>
 
@@ -22,20 +22,19 @@ The following step-by-step instructions describe how to create the same applicat
 
 ## Create a New MAUI Application and Add a Tab View
 
-Create a new .NET MAUI solution in Visual Studio 22 Preview.  
-Refer to the following Microsoft documentation for more information on how to get started with .NET MAUI: [.NET Multi-platform App UI](https://docs.microsoft.com/en-gb/dotnet/maui/).
+Create a new .NET MAUI solution in Visual Studio 22 Preview. Refer to the following Microsoft documentation for more information on how to get started with .NET MAUI: [.NET Multi-platform App UI](https://docs.microsoft.com/en-gb/dotnet/maui/).
 
-Register https://nuget.devexpress.com/free/api as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
+Register `https://nuget.devexpress.com/free/api` as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
 
 Install the **DevExpress.Maui.Navigation** package from your NuGet feed.
 
-In the *MauiProgram.cs* file, register a handler for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) class:
+In the *MauiProgram.cs* file, call the **UseDevExpress** method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) and other DevExpress controls:
 
 ```cs
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Hosting;
-using DevExpress.Maui.Navigation;
+using DevExpress.Maui;
 
 namespace TabView_CreateItems {
     public static class MauiProgram {
@@ -47,7 +46,7 @@ namespace TabView_CreateItems {
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 })
-                .ConfigureMauiHandlers((handlers => handlers.AddHandler<TabView, TabViewHandler>()));
+                .UseDevExpress();
             return builder.Build();
         }
     }
@@ -73,7 +72,7 @@ Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.Tab
 ```xaml
 <dxn:TabView>
     <dxn:TabViewItem HeaderText="Mail"
-                     HeaderIcon="email.svg">
+                     HeaderIcon="email">
         <dxn:TabViewItem.Content>
             <Grid>
                 <Label Text="Mail List Here" 
@@ -84,7 +83,7 @@ Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.Tab
     </dxn:TabViewItem>
 
     <dxn:TabViewItem HeaderText="Calendar"
-                     HeaderIcon="calendar.svg">
+                     HeaderIcon="calendar">
         <dxn:TabViewItem.Content>
             <Grid>
                 <Label Text="Calendar Here" 
@@ -95,7 +94,7 @@ Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.Tab
     </dxn:TabViewItem>
 
     <dxn:TabViewItem HeaderText="People"
-                     HeaderIcon="people.svg">
+                     HeaderIcon="people">
         <dxn:TabViewItem.Content>
             <Grid>
                 <Label Text="People Here"
@@ -140,7 +139,7 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
                  ItemHeaderIconColor="{StaticResource unselected_grey}"
                  ItemHeaderTextColor="{StaticResource unselected_grey}">
         <dxn:TabViewItem HeaderText="Mail"
-                         HeaderIcon="email.svg"
+                         HeaderIcon="email"
                          SelectedHeaderIconColor="{StaticResource mail_blue}"
                          SelectedHeaderTextColor="{StaticResource mail_blue}">
             <dxn:TabViewItem.Content>
@@ -153,7 +152,7 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
         </dxn:TabViewItem>
 
         <dxn:TabViewItem HeaderText="Calendar"
-                         HeaderIcon="calendar.svg"
+                         HeaderIcon="calendar"
                          SelectedHeaderIconColor="{StaticResource calendar_green}"
                          SelectedHeaderTextColor="{StaticResource calendar_green}">
             <dxn:TabViewItem.Content>
@@ -166,7 +165,7 @@ Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderI
         </dxn:TabViewItem>
 
         <dxn:TabViewItem HeaderText="People"
-                         HeaderIcon="people.svg"
+                         HeaderIcon="people"
                          SelectedHeaderIconColor="{StaticResource people_red}"
                          SelectedHeaderTextColor="{StaticResource people_red}">
             <dxn:TabViewItem.Content>

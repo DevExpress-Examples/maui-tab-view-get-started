@@ -6,6 +6,7 @@
 * [MainPage.xaml.cs](./TabView_GenerateItems/MainPage.xaml.cs)
 * [CarModel.cs](./TabView_GenerateItems/CarModel.cs)
 * [CarBrandViewModel.cs](./TabView_GenerateItems/CarBrandViewModel.cs)
+* [BoolToColorConverter.cs](./TabView_GenerateItems/BoolToColorConverter.cs)
 * [MainViewModel.cs](./TabView_GenerateItems/MainViewModel.cs)
 <!-- default file list end -->
 
@@ -13,32 +14,31 @@
 
 This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) component with tab items generated from a data source to create a tab bar that allows users to filter lists. 
 
-1. Install a [.NET MAUI development](https://docs.microsoft.com/en-gb/dotnet/maui/get-started/installation) environment and open the solution in Visual Studio 22 Preview.
-2. Register the following NuGet feed in Visual Studio: https://nuget.devexpress.com/free/api.  
+1. Install a [.NET MAUI development](https://docs.microsoft.com/en-gb/dotnet/maui/get-started/installation) environment and open the solution in Visual Studio 2022.
+2. Register the following NuGet feed in Visual Studio: `https://nuget.devexpress.com/free/api`.  
 	If you are an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/), this MAUI preview will be available in your personal NuGet feed automatically.
 4. Restore NuGet packages.  
-5. Run the application on an Android device or emulator.  
+5. Run the application on an Android or iOS device or emulator.  
 
-<img src="./img/devexpress-maui-tab-view.png"/>
+<img src="./img/devexpress-maui-tab-view.png" width="700"/>
 
 The following step-by-step instructions describe how to create the same application.
 
 ## Create a New MAUI Application and Add a Tab View
 
-Create a new .NET MAUI solution in Visual Studio 22 Preview.  
-Refer to the following Microsoft documentation for more information on how to get started with .NET MAUI: [.NET Multi-platform App UI](https://docs.microsoft.com/en-gb/dotnet/maui/).
+Create a new .NET MAUI solution in Visual Studio 2022. Refer to the following Microsoft documentation for more information on how to get started with .NET MAUI: [.NET Multi-platform App UI](https://docs.microsoft.com/en-gb/dotnet/maui/).
 
-Register https://nuget.devexpress.com/free/api as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
+Register `https://nuget.devexpress.com/free/api` as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
 
 Install the **DevExpress.Maui.Navigation** package from your NuGet feed.
 
-In the *MauiProgram.cs* file, register a handler for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) class:
+In the *MauiProgram.cs* file, call the `UseDevExpress` method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) and other DevExpress controls:
 
 ```cs
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Hosting;
-using DevExpress.Maui.Navigation;
+using DevExpress.Maui;
 
 namespace TabView_GenerateItems {
     public static class MauiProgram {
@@ -46,7 +46,7 @@ namespace TabView_GenerateItems {
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .ConfigureMauiHandlers((handlers => handlers.AddHandler<TabView, TabViewHandler>()))
+                .UseDevExpress()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -232,11 +232,10 @@ In the MainPage.xaml file:
                  SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}">
         <dxn:TabView.ItemHeaderTemplate>
             <DataTemplate>
-                <Grid>
-                    <Label Text="{Binding BrandName}"
-                    	   HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand"/>
-            	</Grid>
+                <Label Text="{Binding BrandName}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"/>
+            	
             </DataTemplate>
         </dxn:TabView.ItemHeaderTemplate>
         <dxn:TabView.ItemTemplate>
@@ -283,28 +282,27 @@ Specify the minimum and maximum sizes of items, the spacing between them, and it
 </dxn:TabView>
 ```
 
-Specify the header panel’s background, and assign a color to a header item depending on whether the tab is selected:
+Use the [TabView.HeaderPanelBackgroundColor](https://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.HeaderPanelBackgroundColor) property to specify the background color of the header panel. The `Label.TextColor` property specifies the color of labels in the panel. We use the following converter to convert a Boolean value in the view model to a `Color` structure.
+
 
 ```cs
 using System;
+using System.ComponentModel;
 using System.Globalization;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 
-namespace TabView_GenerateItems {
-    public partial class MainPage : ContentPage {
-        public MainPage() {
-            InitializeComponent();
-        }
-    }
-
-    class IsSelectedToColorConverter : IValueConverter {
-        public Color DefaultColor { get; set; }
-        public Color SelectedColor { get; set; }
+namespace TabView_GenerateItems
+{
+    public class BoolToColorConverter:IValueConverter {
+        public Color FalseSource { get; set; }
+        public Color TrueSource { get; set; }
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
-            if (!(value is bool boolValue)) return DefaultColor;
-            return (boolValue) ? SelectedColor : DefaultColor;
+            if (!(value is bool)) {
+                return null;
+            }
+            return (bool)value ? TrueSource : FalseSource;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
@@ -317,7 +315,7 @@ namespace TabView_GenerateItems {
 ```xaml
 <ContentPage.Resources>
     <ResourceDictionary>
-        <local:IsSelectedToColorConverter x:Key="isSelectedToColorConverter"
+        <local:BoolToColorConverter x:Key="boolToColorConverter"
                                             DefaultColor="Transparent"
                                             SelectedColor="#40FFFFFF"/>
     </ResourceDictionary>
@@ -330,19 +328,19 @@ namespace TabView_GenerateItems {
              HeaderPanelBackgroundColor="#1e88e5">
     <dxn:TabView.ItemHeaderTemplate>
         <DataTemplate>
-            <Frame Padding="10, 15"
-                   HasShadow="False"
-                   BackgroundColor="{Binding IsSelected, 
-                                    Converter={StaticResource isSelectedToColorConverter}}">
-                <!-- Other Frame settings -->
-            </Frame>
+           <Label HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               Text="{Binding BrandName}"
+               HorizontalTextAlignment="Center"
+               Padding="5,0"
+               TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
         </DataTemplate>
     </dxn:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
 </dxn:TabView>
 ```
 
-Configure also the header panel’s shadow, hide the selected item indicator, and specify the frame corner radius, margin and text color for header items:
+Customize the header panel shadow and item margins:
 
 ```xaml
 <dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
@@ -353,20 +351,16 @@ Configure also the header panel’s shadow, hide the selected item indicator, an
              HeaderPanelBackgroundColor="#1e88e5"
              HeaderPanelShadowHeight="3"
              HeaderPanelShadowRadius="3"
-             IsSelectedItemIndicatorVisible="False">
+             IsSelectedItemIndicatorVisible="True"
+	     SelectedItemIndicatorColor="White">
     <dxn:TabView.ItemHeaderTemplate>
         <DataTemplate>
-            <Grid>
-                <BoxView BackgroundColor="{Binding IsSelected, 
-                                           Converter={StaticResource isSelectedToColorConverter}}"
-                         Margin="0,8,0,8"
-                         CornerRadius="25"/>
-                <Label HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand"
-                       Text="{Binding BrandName}"
-                       Padding="5,0"
-                       TextColor="White"/>
-            </Grid>
+            <Label HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                   Text="{Binding BrandName}"
+                   HorizontalTextAlignment="Center"
+                   Padding="5,0"
+                   TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
         </DataTemplate>
     </dxn:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
