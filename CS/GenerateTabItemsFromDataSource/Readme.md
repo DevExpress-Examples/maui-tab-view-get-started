@@ -340,7 +340,7 @@ namespace TabView_GenerateItems
 </dxn:TabView>
 ```
 
-Configure also the header panel’s shadow, and specify the frame corner radius, margin and text color for header items:
+Configure also the header panel’s shadow, margin for header items:
 
 ```xaml
 <dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
@@ -355,17 +355,12 @@ Configure also the header panel’s shadow, and specify the frame corner radius,
 	     SelectedItemIndicatorColor="White">
     <dxn:TabView.ItemHeaderTemplate>
         <DataTemplate>
-            <Grid>
-                <BoxView BackgroundColor="{Binding IsSelected, 
-                                           Converter={StaticResource isSelectedToColorConverter}}"
-                         Margin="0,8,0,8"
-                         CornerRadius="25"/>
-                <Label HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand"
-                       Text="{Binding BrandName}"
-                       Padding="5,0"
-                       TextColor="White"/>
-            </Grid>
+            <Label HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                   Text="{Binding BrandName}"
+                   HorizontalTextAlignment="Center"
+                   Padding="5,0"
+                   TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
         </DataTemplate>
     </dxn:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
