@@ -1,7 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation"
+             xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
              xmlns:local="clr-namespace:TabView_GenerateItems"
              x:Class="TabView_GenerateItems.MainPage"
              ios:Page.UseSafeArea="true">
@@ -11,7 +11,7 @@
     <ContentPage.BindingContext>
         <local:MainViewModel/>
     </ContentPage.BindingContext>
-    <dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
+    <dxc:TabView ItemsSource="{Binding CarModelsByBrand}"
                  SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}"
                  ItemHeaderMinWidth="90"
                  ItemHeaderMaxWidth="360"
@@ -22,7 +22,7 @@
                  IsSelectedItemIndicatorVisible="True"
                  SelectedItemIndicatorColor="White">
 
-    <dxn:TabView.ItemHeaderTemplate>
+    <dxc:TabView.ItemHeaderTemplate>
         <DataTemplate>
                     <Label HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand"
@@ -31,8 +31,8 @@
                            Padding="5,0"
                            TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
             </DataTemplate>
-    </dxn:TabView.ItemHeaderTemplate>
-        <dxn:TabView.ItemTemplate>
+    </dxc:TabView.ItemHeaderTemplate>
+        <dxc:TabView.ItemTemplate>
             <DataTemplate>
                 <Grid>
                     <ListView ItemsSource="{Binding CarModels}">
@@ -46,6 +46,6 @@
                     </ListView>
                 </Grid>
             </DataTemplate>
-        </dxn:TabView.ItemTemplate>
-    </dxn:TabView>
+        </dxc:TabView.ItemTemplate>
+    </dxc:TabView>
 </ContentPage>
