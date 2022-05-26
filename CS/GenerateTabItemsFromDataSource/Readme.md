@@ -15,7 +15,7 @@
 This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) component with tab items generated from a data source to create a tab bar that allows users to filter lists. 
 
 1. Install a [.NET MAUI development](https://docs.microsoft.com/en-gb/dotnet/maui/get-started/installation) environment and open the solution in Visual Studio 2022.
-2. Register the following NuGet feed in Visual Studio: `https://nuget.devexpress.com/free/api`.  
+2. Register [your personal NuGet feed](https://nuget.devexpress.com/) in Visual Studio.  
 	If you are an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/), this MAUI preview will be available in your personal NuGet feed automatically.
 4. Restore NuGet packages.  
 5. Run the application on an Android or iOS device or emulator.  
