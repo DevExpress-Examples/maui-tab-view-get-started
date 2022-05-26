@@ -26,7 +26,7 @@ Create a new .NET MAUI solution in Visual Studio 22 Preview. Refer to the follow
 
 Register [your personal NuGet feed](https://nuget.devexpress.com/) as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
 
-Install the **DevExpress.Maui.Navigation** package from your NuGet feed.
+Install the **DevExpress.Maui.Controls** package from your NuGet feed.
 
 In the *MauiProgram.cs* file, call the **UseDevExpress** method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) and other DevExpress controls:
 
@@ -53,12 +53,12 @@ namespace TabView_CreateItems {
 }
 ```
 
-In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Maui.Navigation** namespace and add a [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) object to the main page:
+In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Maui.Controls** namespace and add a [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) object to the main page:
 
 ```xaml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation"
+             xmlns:dxn="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
              x:Class="TabView_CreateItems.MainPage">
      <dxn:TabView/>
 </ContentPage>
