@@ -8,7 +8,7 @@
 
 # Create MAUI Tab View Items Manually
 
-This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) component with manually created tab items to implement bottom tab navigation in a .NET MAUI application.
+This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView) component with manually created tab items to implement bottom tab navigation in a .NET MAUI application.
 
 1. Install a [.NET MAUI development](https://docs.microsoft.com/en-gb/dotnet/maui/get-started/installation) environment and open the solution in Visual Studio 2022.
 2. Register [your personal NuGet feed](https://nuget.devexpress.com/) in Visual Studio.  
@@ -28,7 +28,7 @@ Register [your personal NuGet feed](https://nuget.devexpress.com/) as a package 
 
 Install the **DevExpress.Maui.Controls** package from your NuGet feed.
 
-In the *MauiProgram.cs* file, call the **UseDevExpress** method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) and other DevExpress controls:
+In the *MauiProgram.cs* file, call the **UseDevExpress** method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView) and other DevExpress controls:
 
 ```cs
 using Microsoft.Maui;
@@ -53,57 +53,57 @@ namespace TabView_CreateItems {
 }
 ```
 
-In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Maui.Controls** namespace and add a [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) object to the main page:
+In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Maui.Controls** namespace and add a [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView) object to the main page:
 
 ```xaml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxn="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
+             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
              x:Class="TabView_CreateItems.MainPage">
-     <dxn:TabView/>
+     <dxco:TabView/>
 </ContentPage>
 ```
 
 ## Create Tab Items
 Add icons for tabs ([.svg files](./TabView_CreateItems/Resources/Images/)) to the project and set their **Build Action** property to **MauiImage**.
 
-Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabViewItem) objects to the [TabView.Items](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.Items) collection:
+Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabViewItem) objects to the [TabView.Items](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView.Items) collection:
 
 ```xaml
-<dxn:TabView>
-    <dxn:TabViewItem HeaderText="Mail"
+<dxco:TabView>
+    <dxco:TabViewItem HeaderText="Mail"
                      HeaderIcon="email">
-        <dxn:TabViewItem.Content>
+        <dxco:TabViewItem.Content>
             <Grid>
                 <Label Text="Mail List Here" 
                        HorizontalOptions="Center" 
                        VerticalOptions="CenterAndExpand"/>
             </Grid>
-        </dxn:TabViewItem.Content>
-    </dxn:TabViewItem>
+        </dxco:TabViewItem.Content>
+    </dxco:TabViewItem>
 
-    <dxn:TabViewItem HeaderText="Calendar"
+    <dxco:TabViewItem HeaderText="Calendar"
                      HeaderIcon="calendar">
-        <dxn:TabViewItem.Content>
+        <dxco:TabViewItem.Content>
             <Grid>
                 <Label Text="Calendar Here" 
                        HorizontalOptions="Center" 
                        VerticalOptions="CenterAndExpand"/>
             </Grid>
-        </dxn:TabViewItem.Content>
-    </dxn:TabViewItem>
+        </dxco:TabViewItem.Content>
+    </dxco:TabViewItem>
 
-    <dxn:TabViewItem HeaderText="People"
+    <dxco:TabViewItem HeaderText="People"
                      HeaderIcon="people">
-        <dxn:TabViewItem.Content>
+        <dxco:TabViewItem.Content>
             <Grid>
                 <Label Text="People Here"
                        HorizontalOptions="Center" 
                        VerticalOptions="CenterAndExpand"/>
             </Grid>
-        </dxn:TabViewItem.Content>
-    </dxn:TabViewItem>
-</dxn:TabView>
+        </dxco:TabViewItem.Content>
+    </dxco:TabViewItem>
+</dxco:TabView>
 ```
 
 Note that you can skip the **Items** property tags in the XAML markup as this property has a *ContentProperty* attribute.
@@ -113,69 +113,69 @@ Note that you can skip the **Items** property tags in the XAML markup as this pr
 Move the header panel with tabs to the bottom of the page, set up tabs to fill all the available space in the header panel, and hide the selected item indicator:
 
 ```xaml
-<dxn:TabView HeaderPanelPosition="Bottom"
+<dxco:TabView HeaderPanelPosition="Bottom"
              ItemHeaderWidth="*"
              IsSelectedItemIndicatorVisible="False">
     <!-- Tab items here. -->
-</dxn:TabView>
+</dxco:TabView>
 ```
 
-Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderIconColor** and **ItemHeaderTextColor** properties of the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) object to specify the same colors for all tab items when they are not selected, and the **SelectedHeaderIconColor** and **SelectedHeaderTextColor** properties of [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabViewItem) objects to set icon and text colors for individual tabs in the selected state:
+Specify icon and text colors for tabs in the header panel. Use the **ItemHeaderIconColor** and **ItemHeaderTextColor** properties of the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView) object to specify the same colors for all tab items when they are not selected, and the **SelectedHeaderIconColor** and **SelectedHeaderTextColor** properties of [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabViewItem) objects to set icon and text colors for individual tabs in the selected state:
 
 ```xaml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TabView_CreateItems.MainPage"
-             xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation">
+             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls">
     <ContentPage.Resources>
         <Color x:Key="unselected_grey">#757575</Color>
         <Color x:Key="mail_blue">#1e88e5</Color>
         <Color x:Key="calendar_green">#43a047</Color>
         <Color x:Key="people_red">#e53935</Color>
     </ContentPage.Resources>
-    <dxn:TabView HeaderPanelPosition="Bottom"
+    <dxco:TabView HeaderPanelPosition="Bottom"
                  IsSelectedItemIndicatorVisible="False"
                  ItemHeaderWidth="*"
                  ItemHeaderIconColor="{StaticResource unselected_grey}"
                  ItemHeaderTextColor="{StaticResource unselected_grey}">
-        <dxn:TabViewItem HeaderText="Mail"
+        <dxco:TabViewItem HeaderText="Mail"
                          HeaderIcon="email"
                          SelectedHeaderIconColor="{StaticResource mail_blue}"
                          SelectedHeaderTextColor="{StaticResource mail_blue}">
-            <dxn:TabViewItem.Content>
+            <dxco:TabViewItem.Content>
                 <Grid>
                     <Label Text="Mail List Here" 
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
                 </Grid>
-            </dxn:TabViewItem.Content>
-        </dxn:TabViewItem>
+            </dxco:TabViewItem.Content>
+        </dxco:TabViewItem>
 
-        <dxn:TabViewItem HeaderText="Calendar"
+        <dxco:TabViewItem HeaderText="Calendar"
                          HeaderIcon="calendar"
                          SelectedHeaderIconColor="{StaticResource calendar_green}"
                          SelectedHeaderTextColor="{StaticResource calendar_green}">
-            <dxn:TabViewItem.Content>
+            <dxco:TabViewItem.Content>
                 <Grid>
                     <Label Text="Calendar Here" 
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
                 </Grid>
-            </dxn:TabViewItem.Content>
-        </dxn:TabViewItem>
+            </dxco:TabViewItem.Content>
+        </dxco:TabViewItem>
 
-        <dxn:TabViewItem HeaderText="People"
+        <dxco:TabViewItem HeaderText="People"
                          HeaderIcon="people"
                          SelectedHeaderIconColor="{StaticResource people_red}"
                          SelectedHeaderTextColor="{StaticResource people_red}">
-            <dxn:TabViewItem.Content>
+            <dxco:TabViewItem.Content>
                 <Grid>
                     <Label Text="People Here"
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
                 </Grid>
-            </dxn:TabViewItem.Content>
-        </dxn:TabViewItem>
-    </dxn:TabView>
+            </dxco:TabViewItem.Content>
+        </dxco:TabViewItem>
+    </dxco:TabView>
 </ContentPage>
 ```

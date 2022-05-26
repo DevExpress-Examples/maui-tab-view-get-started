@@ -12,7 +12,7 @@
 
 # Generate MAUI Tab View Items from a Data Source
 
-This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) component with tab items generated from a data source to create a tab bar that allows users to filter lists. 
+This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView) component with tab items generated from a data source to create a tab bar that allows users to filter lists. 
 
 1. Install a [.NET MAUI development](https://docs.microsoft.com/en-gb/dotnet/maui/get-started/installation) environment and open the solution in Visual Studio 2022.
 2. Register [your personal NuGet feed](https://nuget.devexpress.com/) in Visual Studio.  
@@ -30,9 +30,9 @@ Create a new .NET MAUI solution in Visual Studio 2022. Refer to the following Mi
 
 Register [your personal NuGet feed](https://nuget.devexpress.com/) as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
 
-Install the **DevExpress.Maui.Navigation** package from your NuGet feed.
+Install the **DevExpress.Maui.Controls** package from your NuGet feed.
 
-In the *MauiProgram.cs* file, call the `UseDevExpress` method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) and other DevExpress controls:
+In the *MauiProgram.cs* file, call the `UseDevExpress` method to register handlers for the [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView) and other DevExpress controls:
 
 ```cs
 using Microsoft.Maui;
@@ -57,14 +57,14 @@ namespace TabView_GenerateItems {
 }
 ```
 
-In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Maui.Navigation** namespace and add a [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView) object to the main page:
+In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Maui.Controls** namespace and add a [TabView](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView) object to the main page:
 
 ```xaml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation"
+             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
              x:Class="TabView_GenerateItems.MainPage">
-     <dxn:TabView/>
+     <dxco:TabView/>
 </ContentPage>
 ```
 
@@ -216,29 +216,29 @@ namespace TabView_GenerateItems {
 In the MainPage.xaml file:
 
 1. Assign a **MainViewModel** instance to the **ContentPage.BindingContext** property.
-2. Bind the TabView’s [ItemsSource](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.ItemsSource) property to the **CarModelsByBrand** property of the view model, and the [SelectedItemIndex](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.SelectedItemIndex) property to the view model’s **SelectedIndex** property.
-3. Use the [ItemHeaderTemplate](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.ItemHeaderTemplate) property to define the tab item header’s appearance, and the [ItemTemplate](http://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.ItemTemplate) property to specify a view displayed in the tab item’s content area.
+2. Bind the TabView’s [ItemsSource](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView.ItemsSource) property to the **CarModelsByBrand** property of the view model, and the [SelectedItemIndex](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView.SelectedItemIndex) property to the view model’s **SelectedIndex** property.
+3. Use the [ItemHeaderTemplate](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView.ItemHeaderTemplate) property to define the tab item header’s appearance, and the [ItemTemplate](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView.ItemTemplate) property to specify a view displayed in the tab item’s content area.
 
 ```xaml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxn="clr-namespace:DevExpress.Maui.Navigation;assembly=DevExpress.Maui.Navigation"
+             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
              xmlns:local="clr-namespace:TabView_GenerateItems"
              x:Class="TabView_GenerateItems.MainPage">
     <ContentPage.BindingContext>
         <local:MainViewModel/>
     </ContentPage.BindingContext>
-    <dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
+    <dxco:TabView ItemsSource="{Binding CarModelsByBrand}"
                  SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}">
-        <dxn:TabView.ItemHeaderTemplate>
+        <dxco:TabView.ItemHeaderTemplate>
             <DataTemplate>
                 <Label Text="{Binding BrandName}"
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand"/>
             	
             </DataTemplate>
-        </dxn:TabView.ItemHeaderTemplate>
-        <dxn:TabView.ItemTemplate>
+        </dxco:TabView.ItemHeaderTemplate>
+        <dxco:TabView.ItemTemplate>
             <DataTemplate>
                 <Grid>
                     <ListView ItemsSource="{Binding CarModels}">
@@ -252,8 +252,8 @@ In the MainPage.xaml file:
                     </ListView>
                 </Grid>
             </DataTemplate>
-        </dxn:TabView.ItemTemplate>
-    </dxn:TabView>
+        </dxco:TabView.ItemTemplate>
+    </dxco:TabView>
 </ContentPage>
 ```
 
@@ -263,12 +263,12 @@ Configure the appearance of the TabView’s header panel and header items.
 Specify the minimum and maximum sizes of items, the spacing between them, and item padding:
 
 ```xaml
-<dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
+<dxco:TabView ItemsSource="{Binding CarModelsByBrand}"
              SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}"
              ItemHeaderMinWidth="90"
              ItemHeaderMaxWidth="360"
              HeaderPanelItemSpacing="8">
-    <dxn:TabView.ItemHeaderTemplate>
+    <dxco:TabView.ItemHeaderTemplate>
         <DataTemplate>
             <Grid>
                 <Label Text="{Binding BrandName}"
@@ -277,12 +277,12 @@ Specify the minimum and maximum sizes of items, the spacing between them, and it
                        Padding="5,0"/>
             </Grid>
         </DataTemplate>
-    </dxn:TabView.ItemHeaderTemplate>
+    </dxco:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
-</dxn:TabView>
+</dxco:TabView>
 ```
 
-Use the [TabView.HeaderPanelBackgroundColor](https://docs.devexpress.com/MAUI/DevExpress.Maui.Navigation.TabView.HeaderPanelBackgroundColor) property to specify the background color of the header panel. The `Label.TextColor` property specifies the color of labels in the panel. We use the following converter to convert a Boolean value in the view model to a `Color` structure.
+Use the [TabView.HeaderPanelBackgroundColor](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView.HeaderPanelBackgroundColor) property to specify the background color of the header panel. The `Label.TextColor` property specifies the color of labels in the panel. We use the following converter to convert a Boolean value in the view model to a `Color` structure.
 
 
 ```cs
@@ -320,13 +320,13 @@ namespace TabView_GenerateItems
                                             SelectedColor="#40FFFFFF"/>
     </ResourceDictionary>
 </ContentPage.Resources>
-<dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
+<dxco:TabView ItemsSource="{Binding CarModelsByBrand}"
              SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}"
              ItemHeaderMinWidth="90"
              ItemHeaderMaxWidth="360"
              HeaderPanelItemSpacing="8"
              HeaderPanelBackgroundColor="#1e88e5">
-    <dxn:TabView.ItemHeaderTemplate>
+    <dxco:TabView.ItemHeaderTemplate>
         <DataTemplate>
            <Label HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand"
@@ -335,15 +335,15 @@ namespace TabView_GenerateItems
                Padding="5,0"
                TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
         </DataTemplate>
-    </dxn:TabView.ItemHeaderTemplate>
+    </dxco:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
-</dxn:TabView>
+</dxco:TabView>
 ```
 
 Customize the header panel shadow and item margins:
 
 ```xaml
-<dxn:TabView ItemsSource="{Binding CarModelsByBrand}"
+<dxco:TabView ItemsSource="{Binding CarModelsByBrand}"
              SelectedItemIndex="{Binding SelectedIndex, Mode=TwoWay}"
              ItemHeaderMinWidth="90"
              ItemHeaderMaxWidth="360"
@@ -353,7 +353,7 @@ Customize the header panel shadow and item margins:
              HeaderPanelShadowRadius="3"
              IsSelectedItemIndicatorVisible="True"
 	     SelectedItemIndicatorColor="White">
-    <dxn:TabView.ItemHeaderTemplate>
+    <dxco:TabView.ItemHeaderTemplate>
         <DataTemplate>
             <Label HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand"
@@ -362,7 +362,7 @@ Customize the header panel shadow and item margins:
                    Padding="5,0"
                    TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
         </DataTemplate>
-    </dxn:TabView.ItemHeaderTemplate>
+    </dxco:TabView.ItemHeaderTemplate>
     <!-- Other Tab View settings.-->
-</dxn:TabView>
+</dxco:TabView>
 ```
