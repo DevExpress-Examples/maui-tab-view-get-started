@@ -28,7 +28,7 @@ The following step-by-step instructions describe how to create the same applicat
 
 Create a new .NET MAUI solution in Visual Studio 2022. Refer to the following Microsoft documentation for more information on how to get started with .NET MAUI: [.NET Multi-platform App UI](https://docs.microsoft.com/en-gb/dotnet/maui/).
 
-Register `https://nuget.devexpress.com/free/api` as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
+Register [your personal NuGet feed](https://nuget.devexpress.com/) as a package source in Visual Studio, if you are not an active DevExpress [Universal](https://www.devexpress.com/subscriptions/universal.xml) customer or have not yet registered our [free Xamarin UI controls](https://www.devexpress.com/xamarin/).
 
 Install the **DevExpress.Maui.Navigation** package from your NuGet feed.
 
