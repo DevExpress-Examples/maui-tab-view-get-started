@@ -1,4 +1,4 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
@@ -24,13 +24,15 @@
 
     <dxc:TabView.ItemHeaderTemplate>
         <DataTemplate>
-                    <Label HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand"
-                           Text="{Binding BrandName}"
-                           HorizontalTextAlignment="Center"
-                           Padding="5,0"
-                           TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
-            </DataTemplate>
+            <AbsoluteLayout>
+                <Label AbsoluteLayout.LayoutBounds="0.5, 0.5"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       Text="{Binding BrandName}"
+                       HorizontalTextAlignment="Center"
+                       Padding="5,0"
+                       TextColor="{Binding IsSelected, Converter={StaticResource boolToColorConverter}}"/>
+            </AbsoluteLayout>
+        </DataTemplate>
     </dxc:TabView.ItemHeaderTemplate>
         <dxc:TabView.ItemTemplate>
             <DataTemplate>
