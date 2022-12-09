@@ -33,7 +33,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DevExpress.Maui.Controls" Version="22.2.2-beta" />
+		<PackageReference Include="DevExpress.Maui.Controls" Version="22.2.*" />
 	</ItemGroup>
 
 	<PropertyGroup>
