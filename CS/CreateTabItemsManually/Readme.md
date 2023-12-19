@@ -16,7 +16,7 @@ This lesson explains how to use the [TabView](http://docs.devexpress.com/MAUI/De
 4. Restore NuGet packages.  
 5. Run the application on an Android or iOS device or emulator.  
 
-<img src="./img/tab-view.png"/>
+<img src="img/tab-view.png"/>
 
 The following step-by-step instructions describe how to create the same application.
 
@@ -65,7 +65,7 @@ In the *MainPage.xaml* file, use the *dxn* prefix to declare the **DevExpress.Ma
 ```
 
 ## Create Tab Items
-Add icons for tabs ([.svg files](./TabView_CreateItems/Resources/Images/)) to the project and set their **Build Action** property to **MauiImage**.
+Add icons for tabs ([.svg files](Resources/Images/)) to the project and set their **Build Action** property to **MauiImage**.
 
 Add [TabViewItem](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabViewItem) objects to the [TabView.Items](http://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.TabView.Items) collection:
 
