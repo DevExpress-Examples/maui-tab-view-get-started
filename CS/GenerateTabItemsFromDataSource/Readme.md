@@ -1,13 +1,13 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [MauiProgram.cs](./TabView_GenerateItems/MauiProgram.cs)
-* [MainPage.xaml](./TabView_GenerateItems/MainPage.xaml)
-* [MainPage.xaml.cs](./TabView_GenerateItems/MainPage.xaml.cs)
-* [CarModel.cs](./TabView_GenerateItems/CarModel.cs)
-* [CarBrandViewModel.cs](./TabView_GenerateItems/CarBrandViewModel.cs)
-* [BoolToColorConverter.cs](./TabView_GenerateItems/BoolToColorConverter.cs)
-* [MainViewModel.cs](./TabView_GenerateItems/MainViewModel.cs)
+* [MauiProgram.cs](MauiProgram.cs)
+* [MainPage.xaml](MainPage.xaml)
+* [MainPage.xaml.cs](MainPage.xaml.cs)
+* [CarModel.cs](CarModel.cs)
+* [CarBrandViewModel.cs](CarBrandViewModel.cs)
+* [BoolToColorConverter.cs](BoolToColorConverter.cs)
+* [MainViewModel.cs](MainViewModel.cs)
 <!-- default file list end -->
 
 # Generate MAUI Tab View Items from a Data Source
