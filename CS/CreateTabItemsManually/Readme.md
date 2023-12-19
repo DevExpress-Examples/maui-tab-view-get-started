@@ -1,9 +1,9 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [MauiProgram.cs](./TabView_CreateItems/MauiProgram.cs)
-* [MainPage.xaml](./TabView_CreateItems/MainPage.xaml)
-* [MainPage.xaml.cs](./TabView_CreateItems/MainPage.xaml.cs)
+* [MauiProgram.cs](MauiProgram.cs)
+* [MainPage.xaml](MainPage.xaml)
+* [MainPage.xaml.cs](MainPage.xaml.cs)
 <!-- default file list end -->
 
 # Create MAUI Tab View Items Manually
