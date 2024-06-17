@@ -1,55 +1,55 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TabView_CreateItems.MainPage"
-             xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls">
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             x:Class="TabView_CreateItems.MainPage">
     <ContentPage.Resources>
         <Color x:Key="unselectedItemColor">#757575</Color>
         <Color x:Key="mailColor">#1e88e5</Color>
         <Color x:Key="calendarColor">#43a047</Color>
         <Color x:Key="peopleColor">#e53935</Color>
     </ContentPage.Resources>
-    <dxc:TabView HeaderPanelPosition="Bottom"
+    <dx:TabView HeaderPanelPosition="Bottom"
                  ItemHeaderWidth="*"
                  IsSelectedItemIndicatorVisible="False"
                  ItemHeaderTextColor="{StaticResource unselectedItemColor}"
                  ItemHeaderIconColor="{StaticResource unselectedItemColor}">
-        <dxc:TabViewItem HeaderText="Mail"
+        <dx:TabViewItem HeaderText="Mail"
                          HeaderIcon="email"
                          SelectedHeaderTextColor="{StaticResource mailColor}"
                          SelectedHeaderIconColor="{StaticResource mailColor}">
-            <dxc:TabViewItem.Content>
+            <dx:TabViewItem.Content>
                 <Grid>
                     <Label Text="Mail List Here" 
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
                 </Grid>
-            </dxc:TabViewItem.Content>
-        </dxc:TabViewItem>
+            </dx:TabViewItem.Content>
+        </dx:TabViewItem>
         
-        <dxc:TabViewItem HeaderText="Calendar"
+        <dx:TabViewItem HeaderText="Calendar"
                          HeaderIcon="calendar"
                          SelectedHeaderTextColor="{StaticResource calendarColor}"
                          SelectedHeaderIconColor="{StaticResource calendarColor}">
-            <dxc:TabViewItem.Content>
+            <dx:TabViewItem.Content>
                 <Grid>
                     <Label Text="Calendar Here" 
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
                 </Grid>
-            </dxc:TabViewItem.Content>
-        </dxc:TabViewItem>
+            </dx:TabViewItem.Content>
+        </dx:TabViewItem>
 
-        <dxc:TabViewItem HeaderText="People"
+        <dx:TabViewItem HeaderText="People"
                          HeaderIcon="people"
                          SelectedHeaderTextColor="{StaticResource peopleColor}"
                          SelectedHeaderIconColor="{StaticResource peopleColor}">
-            <dxc:TabViewItem.Content>
+            <dx:TabViewItem.Content>
                 <Grid>
                     <Label Text="People Here"
                            HorizontalOptions="Center" 
                            VerticalOptions="CenterAndExpand"/>
                 </Grid>
-            </dxc:TabViewItem.Content>
-        </dxc:TabViewItem>
-    </dxc:TabView>
+            </dx:TabViewItem.Content>
+        </dx:TabViewItem>
+    </dx:TabView>
 </ContentPage>

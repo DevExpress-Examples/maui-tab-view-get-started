@@ -9,6 +9,8 @@ namespace TabView_CreateItems {
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+				.UseDevExpress()
+				.UseDevExpressControls()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
