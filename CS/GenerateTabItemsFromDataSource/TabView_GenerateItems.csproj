@@ -13,6 +13,7 @@
     <ApplicationId>com.companyname.TabView_GenerateItems</ApplicationId>
     <!-- Versions -->
     <ApplicationVersion>1</ApplicationVersion>
+    <MauiVersion>9.0.10</MauiVersion>
   </PropertyGroup>
   <ItemGroup>
     <!-- App Icon -->
@@ -27,7 +28,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-    <PackageReference Include="DevExpress.Maui.Controls" Version="24.1.*" />
+    <PackageReference Include="DevExpress.Maui.Controls" Version="24.2.*" />
   </ItemGroup>
   <PropertyGroup>
     <UseInterpreter Condition="$(TargetFramework.Contains('-android'))">False</UseInterpreter>
